@@ -97,4 +97,20 @@ export class ItemSelectorComponent {
   toggleDropdown(): void {
     this.isOpen = !this.isOpen;
   }
+
+  getSelectedCounts(): string {
+    let categoriesCount = 0;
+    let subcategoriesCount = 0;
+
+    this.categories.forEach((category) => {
+      if (category.selected) {
+        categoriesCount++;
+      }
+      if (category.subcategories) {
+        subcategoriesCount += category.subcategories.filter((sub) => sub.selected).length;
+      }
+    });
+
+    return `Выбрано: ${categoriesCount} воронки, ${subcategoriesCount} этапов`;
+  }
 }

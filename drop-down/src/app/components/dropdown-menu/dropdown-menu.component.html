@@ -1,6 +1,6 @@
 <div class="field" (click)="toggleDropdown()">
   <input class="field-checkbox" type="checkbox" id="checkbox-field" [checked]="isSelectedAll" (click)="$event.stopPropagation(); toggleSelection()" (change)="onChangeCheck()">
-  <label class="field-label" for="checkbox-field" (click)="$event.stopPropagation()">{{ isSelectedAll ? 'Снять выделение' : 'Выбрать все' }}</label>
+  <label class="field-label" for="checkbox-field" (click)="$event.stopPropagation()">{{ isOpen ? (isSelectedAll ? 'Снять выделение' : 'Выбрать все') : getSelectedCounts() }}</label>
 </div>
 
 <div class="dropdown" *ngIf="isOpen">
