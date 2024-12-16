@@ -24,23 +24,22 @@
 ## Установка и запуск
 
 1. **Клонируйте репозиторий**:
-   ```bash
-   git clone https://github.com/your-repository-link.git
-   cd drop-down
-   ```
+```bash
+git clone https://github.com/your-repository-link.git
+cd drop-down
+```
 2 **Установите зависимости**:
-    ```bash
-    npm install
-    
-    ```
+```bash
+npm install
+```
 3. **Запустите проект**:
-    ```bash
-    ng serve
-    ```
+```bash
+ng serve
+ ```
 4. **Перейдите в браузер**:
-    ```bash
-    http://localhost:4200
-    ```
+```bash
+http://localhost:4200
+```
 
 ## Технологии
 1. Angular
