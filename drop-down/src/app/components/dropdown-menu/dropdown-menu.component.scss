@@ -1,0 +1,17 @@
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #DADEDF;
+  padding: 7px 7.5px;
+  max-width: 300px;
+
+  &-checkbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  &-label {
+    font-size: 15px;
+  }
+}
