@@ -65,8 +65,7 @@ export class ItemSelectorComponent {
     this.isSelectedAll = this.categories.some(
       (category) =>
         category.selected ||
-        (category.subcategories &&
-          category.subcategories.some((sub) => sub.selected))
+        (category.subcategories && category.subcategories.some((sub) => sub.selected))
     );
   }
 
@@ -75,9 +74,7 @@ export class ItemSelectorComponent {
     this.categories.forEach((category) => {
       category.selected = newSelectionState;
       if (category.subcategories) {
-        category.subcategories.forEach(
-          (sub) => (sub.selected = newSelectionState)
-        );
+        category.subcategories.forEach((sub) => (sub.selected = newSelectionState));
       }
     });
     this.isSelectedAll = newSelectionState;
@@ -90,8 +87,8 @@ export class ItemSelectorComponent {
   }
 
   onChangeCheck() {
-    this.updateSelectionState()
-    this.saveData()
+    this.updateSelectionState();
+    this.saveData();
   }
 
   toggleDropdown(): void {
