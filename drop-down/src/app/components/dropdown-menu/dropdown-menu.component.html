@@ -1,8 +1,11 @@
-<div class="field">
-  <input class="field-checkbox" type="checkbox" id="checkbox1">
-  <label class="field-label" for="checkbox1">Снять выделение</label>
+<div class="field" (click)="toggleDropdown()">
+  <input class="field-checkbox" type="checkbox" id="checkbox-field" (click)="$event.stopPropagation()">
+  <label class="field-label" for="checkbox-field" (click)="$event.stopPropagation()">Снять выделение</label>
 </div>
 
-<div class="dropdown">
-
+<div class="dropdown" *ngIf="isOpen">
+  <div class="dropdown-item field">
+    <input class="dropdown-item-checkbox field-checkbox" type="checkbox">
+    <span class="dropdown-item-name field-label">name</span>
+  </div>
 </div>

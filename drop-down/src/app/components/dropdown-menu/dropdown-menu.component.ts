@@ -12,6 +12,5 @@ export class ItemSelectorComponent {
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
-
   }
 }

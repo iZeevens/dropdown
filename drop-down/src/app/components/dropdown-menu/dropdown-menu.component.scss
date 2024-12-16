@@ -3,6 +3,7 @@
   align-items: center;
   gap: 8px;
   border: 1px solid #DADEDF;
+  border-radius: 2px;
   padding: 7px 7.5px;
   max-width: 300px;
 
@@ -12,6 +13,11 @@
   }
 
   &-label {
+    user-select: none;
     font-size: 15px;
   }
+}
+
+.dropdown {
+  padding-top: 1px;
 }
