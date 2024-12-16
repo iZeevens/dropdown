@@ -1,5 +1,5 @@
 import { openDB, IDBPDatabase } from 'idb';
-import { DropDownDB } from '../../models/indexDB.model';
+import { DropDownDB, IndexedDbData } from '../../models/IndexedDB.model';
 import { Category } from '../../models/dropDown.model';
 
 export class IndexedDbService {
@@ -20,13 +20,14 @@ export class IndexedDbService {
     isSelectedAll: boolean;
   }): Promise<void> {
     const db = await this.openDb();
+    const indexedDbData: IndexedDbData = {
+      key: 1,
+      categories: data.categories,
+      isSelectedAll: data.isSelectedAll,
+    };
     await db.put(
       'selectionStore',
-      {
-        categories: data.categories,
-        isSelectedAll: data.isSelectedAll,
-      },
-      1
+      indexedDbData
     );
   }
 

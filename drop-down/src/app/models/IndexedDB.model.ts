@@ -8,4 +8,11 @@ interface DropDownDB extends DBSchema {
   };
 }
 
-export type { DropDownDB };
+interface IndexedDbData {
+  key: number;
+  categories: Category[];
+  isSelectedAll: boolean;
+}
+
+
+export type { DropDownDB, IndexedDbData };
