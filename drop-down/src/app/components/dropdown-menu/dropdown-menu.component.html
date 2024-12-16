@@ -4,8 +4,21 @@
 </div>
 
 <div class="dropdown" *ngIf="isOpen">
-  <div class="dropdown-item field">
-    <input class="dropdown-item-checkbox field-checkbox" type="checkbox">
-    <span class="dropdown-item-name field-label">name</span>
+  <div *ngFor="let category of categories" class="dropdown-item">
+    <div class="categories">
+      <div class="categories-container" (click)="toggleSubCategory(category)">
+        <input class="dropdown-item-checkbox field-checkbox" type="checkbox" (click)="$event.stopPropagation()">
+        <span class="dropdown-item-name field-label">{{category.name}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="category.expanded" class="subcategories">
+      <div *ngFor="let sub of category.subcategories" [ngClass]="sub.color">
+        <div class="subcategories-container">
+          <input class="subcategories-checkbox field-checkbox" type="checkbox">
+          <span class="subcategories-name field-label">{{sub.name}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

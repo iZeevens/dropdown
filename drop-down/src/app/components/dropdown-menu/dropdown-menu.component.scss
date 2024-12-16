@@ -19,5 +19,34 @@
 }
 
 .dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  max-width: 300px;
   padding-top: 1px;
+
+  &-item {
+    border: 1px solid #DADEDF;
+    width: 100%;
+
+    .subcategories-container,
+    .categories-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 7.5px;
+      font-size: 15px;
+    }
+  }
 }
+
+
+
+
+
+// Colors category
+.blue { background-color: #99CCFD; }
+.yellow { background-color: #FFFF99; }
+.orange { background-color: #FFCC66; }
+.green { background-color: #CCFF66; }
