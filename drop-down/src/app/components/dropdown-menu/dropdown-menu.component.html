@@ -1,22 +1,24 @@
-<div class="field" (click)="toggleDropdown()">
-  <input class="field-checkbox" type="checkbox" id="checkbox-field" [checked]="isSelectedAll" (click)="$event.stopPropagation(); toggleSelection()" (change)="onChangeCheck()">
-  <label class="field-label" for="checkbox-field" (click)="$event.stopPropagation()">{{ isOpen ? (isSelectedAll ? 'Снять выделение' : 'Выбрать все') : getSelectedCounts() }}</label>
-</div>
-
-<div class="dropdown" *ngIf="isOpen">
-  <div *ngFor="let category of categories" class="dropdown-item">
-    <div class="categories">
-      <div class="categories-container" (click)="toggleSubCategory(category)">
-        <input class="dropdown-item-checkbox field-checkbox" type="checkbox" [(ngModel)]="category.selected" (click)="$event.stopPropagation()" (change)="onChangeCheck()">
-        <span class="dropdown-item-name field-label">{{category.name}}</span>
+<div class="dropdown-container">
+  <div class="field" (click)="toggleDropdown()">
+    <input class="field-checkbox" type="checkbox" [checked]="isSelectedAll" (click)="$event.stopPropagation(); toggleSelection()" (change)="onChangeCheck()">
+    <span class="field-label" [ngClass]="{'grey-item': isOpen}">{{ isOpen ? (isSelectedAll ? 'Снять выделение' : 'Выбрать все') : getSelectedCounts() }}</span>
+  </div>
+  
+  <div class="dropdown-menu" *ngIf="isOpen">
+    <div *ngFor="let category of categories" class="dropdown-item">
+      <div class="categories">
+        <div class="categories-container" (click)="toggleSubCategory(category)">
+          <input class="dropdown-item-checkbox field-checkbox" type="checkbox" [(ngModel)]="category.selected" (click)="$event.stopPropagation()" (change)="onChangeCheck()">
+          <span class="dropdown-item-name field-label grey-item">{{category.name}}</span>
+        </div>
       </div>
-    </div>
-
-    <div *ngIf="category.expanded" class="subcategories">
-      <div *ngFor="let sub of category.subcategories" [ngClass]="sub.color">
-        <div class="subcategories-container">
-          <input class="subcategories-checkbox field-checkbox" type="checkbox" [(ngModel)]="sub.selected"  (change)="onChangeCheck()">
-          <span class="subcategories-name field-label">{{sub.name}}</span>
+  
+      <div *ngIf="category.expanded" class="subcategories">
+        <div *ngFor="let sub of category.subcategories" [ngClass]="sub.color">
+          <div class="subcategories-container">
+            <input class="subcategories-checkbox field-checkbox" type="checkbox" [(ngModel)]="sub.selected"  (change)="onChangeCheck()">
+            <span class="subcategories-name field-label">{{sub.name}}</span>
+          </div>
         </div>
       </div>
     </div>

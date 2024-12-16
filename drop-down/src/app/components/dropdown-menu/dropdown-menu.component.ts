@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Category } from '../../models/dropDown.model';
@@ -31,7 +31,7 @@ export class ItemSelectorComponent {
     { id: 'cat4', name: 'Партнеры', selected: true },
   ];
 
-  constructor(private IndexedDbService: IndexedDbService) {}
+  constructor(private IndexedDbService: IndexedDbService, private elementRef: ElementRef) {}
 
   async ngOnInit(): Promise<void> {
     await this.loadData();
@@ -112,5 +112,12 @@ export class ItemSelectorComponent {
     });
 
     return `Выбрано: ${categoriesCount} воронки, ${subcategoriesCount} этапов`;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event): void {
+    if (this.isOpen && !this.elementRef.nativeElement.contains(event.target)) {
+      this.isOpen = false;
+    }
   }
 }
