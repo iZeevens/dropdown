@@ -17,6 +17,10 @@
 3. **`dropdown-menu.component.html`** — шаблон компонента с чекбоксами и раскрывающимися категориями.
 4. **`dropdown-menu.component.scss`** — стили компонента.
 
+## Deploy
+
+[Link](https://zoneless-dropdown.netlify.app/)
+
 ## Установка и запуск
 
 1. **Клонируйте репозиторий**:
